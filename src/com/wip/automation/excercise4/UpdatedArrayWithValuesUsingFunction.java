@@ -21,12 +21,7 @@ public class UpdatedArrayWithValuesUsingFunction {
         + "\nCopy of the original array is ===> "+ Arrays.toString(copyArray)
         + "\nReverse array is ===> "+ Arrays.toString(rev)
         );
-
-
-
   }
-
-
 
   // find minimum value using for loop and if statement
 
@@ -54,6 +49,7 @@ public class UpdatedArrayWithValuesUsingFunction {
     return maxValue;
   }
 
+  
   public static int arraySum(int numbers[]) {
     int sum = 0;
     for (int i = 0; i < numbers.length; i++) {
@@ -64,6 +60,7 @@ public class UpdatedArrayWithValuesUsingFunction {
 
   }
 
+  
   public static int[] arrayCopy(int numbers[]) {
     int[] copyArray = new int[numbers.length];
 
@@ -74,6 +71,7 @@ public class UpdatedArrayWithValuesUsingFunction {
     return copyArray;
 
   }
+  
 
   public static int[] revArrayCopy(int numbers[]) {
     int[] revArrayCopy = new int[numbers.length];
@@ -86,24 +84,3 @@ public class UpdatedArrayWithValuesUsingFunction {
 }
   
 }
-/*
- * 
- * // Copy to new array from the end int[] revArrayCopy = new int[numbers.length];
- * 
- * System.out.print("\nReverse copy of numbers array is ===> "); for (int x = numbers.length - 1; x
- * >= 0; x--) {
- * 
- * revArrayCopy[x] = numbers[x]; System.out.print(numArrayCopy[x] + ","); }
- * 
- * // Reverse an array in place
- * System.out.print("\nReverse in place copy of Numebrs array is ===> "); for (int k = 0; k <
- * numbers.length / 2; k++) {
- * 
- * int temp = numbers[k]; numbers[k] = numbers[numbers.length - 1 - k]; numbers[numbers.length - 1 -
- * k] = temp;
- * 
- * } // Output of the in place array
- * 
- * 
- * for (int j = 0; j < numbers.length; j++) { System.out.print(numbers[j] + ",");
- */
