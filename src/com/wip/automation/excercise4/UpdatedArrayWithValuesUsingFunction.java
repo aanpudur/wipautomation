@@ -75,12 +75,11 @@ public class UpdatedArrayWithValuesUsingFunction {
 
   public static int[] revArrayCopy(int numbers[]) {
     int[] revArrayCopy = new int[numbers.length];
-    for (int x = numbers.length - 1; x >= 0; x--) {
-      revArrayCopy[x] = numbers[x];
+    for (int x = numbers.length - 1, j=0; x >= 0; x--, j++) {
+      revArrayCopy[j] = numbers[x];
       
-  }
+    }
     return revArrayCopy;
-
 }
   
 }
