@@ -1,5 +1,7 @@
 package com.wip.training.excercise5;
 
+import org.apache.xerces.util.SynchronizedSymbolTable;
+
 public class Main {
 
   public static void main(String[] args) {
@@ -7,7 +9,7 @@ public class Main {
 
     
     Calculator cal1 = new Calculator();
-    int add = cal1.add(5, 78);
+    int add = cal1.add(89, 56);
     int substract = cal1.substract(56, 89);
     double div = cal1.division(78, 4);
     int multiply = cal1.multiply(25, 678);
@@ -22,37 +24,19 @@ public class Main {
     System.out.println("Output of Modulus ===> " + modulus);
     System.out.println("Output of square ===> " + square);
     
+ 
     
-    
-    
-    
-    Circle circle1 = new Circle();
-    Circle circle2 = new Circle();
-    Circle circle3 = new Circle();
-
+    Circle circle1 = new Circle(25);
+ 
     //find area using radius
-    double area1 = circle1.area(35);
-    double area2 = circle2.area(20);
-    //cast to int 
-    int area3 = (int)circle3.area(89);
+    double area = circle1.pie * circle1.radius * circle1.radius;
+    System.out.println("\nCircle area is===>  " + area);
     
-    //find peremeter using radius
-    double perimeter1 = circle1.peremeter(25);
-    double perimeter2 = circle2.peremeter(73);
-    int perimeter3 = (int)circle3.peremeter(7);
- 
- 
+    //find permeter using radius
+    double perimeter = 2 * circle1.pie * circle1.radius;
+    System.out.println("\nCirccle perimeter is===>  " + perimeter);
     
-    System.out.println(
-        "\nArea:\n\n" + "Circle1 object's circle area is ===> " + area1 
-        + "\nCircle2 object's circle area is ===> "+ area2 
-        + "\nCircle3 object's circle area is ===>" + area3 + "\n"
-        +"\nPerimeter:\n");
     
-    System.out.println(
-        "Circle1 object's circle peremeter is ===> " + perimeter1
-        + "\nCircle2 object's circle perimeter is ===> "+ perimeter2 
-        + "\nCircle3 object's circle perimeter is ===>" + perimeter3);
 
   }
 
