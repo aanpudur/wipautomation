@@ -1,12 +1,10 @@
 package com.wip.training.excercise5;
 
-import org.apache.xerces.util.SynchronizedSymbolTable;
 
 public class Main {
 
   public static void main(String[] args) {
     // TODO Auto-generated method stub
-
     
     Calculator cal1 = new Calculator();
     int add = cal1.add(89, 56);
@@ -24,8 +22,7 @@ public class Main {
     System.out.println("Output of Modulus ===> " + modulus);
     System.out.println("Output of square ===> " + square);
     
- 
-    
+     
     Circle circle1 = new Circle(25);
  
     //find area using radius

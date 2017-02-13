@@ -9,8 +9,8 @@ public class Circle {
   double pie = 3.14;
   
   public Circle(int a){
-   radius = a;
-    
+   radius = a; 
+   
   }
 
 
