@@ -12,10 +12,18 @@ public class Circle {
    radius = a; 
    
   }
+  
+  public double area(){
 
-
+  return pie * radius * radius;
   
 
-
+  }
+  
+  public double perimeter(){
+   return  2 * pie * radius;
+    
+    
+  }
 
 }
