@@ -1,95 +1,115 @@
 package com.wip.training.excercise6;
 
+
 import java.util.Calendar;
 import java.util.Date;
 
 public class MainExcercise6 {
 
   public static void main(String[] args) {
-
-    Movie[] myMovies = new Movie[5];
-
+    // creating calender instance and date
     Calendar cal = Calendar.getInstance();
 
     // built based on the previous homework
     cal.set(2016, Calendar.OCTOBER, 15);
-    Date rd1 = cal.getTime();
+    Date releaseDate1 = cal.getTime();
 
     cal.set(2013, Calendar.NOVEMBER, 13);
-    Date rd2 = cal.getTime();
+    Date releaseDate2 = cal.getTime();
 
     cal.set(2007, Calendar.SEPTEMBER, 13);
-    Date rd3 = cal.getTime();
+    Date releaseDate3 = cal.getTime();
 
     cal.set(2011, Calendar.NOVEMBER, 15);
-    Date rd4 = cal.getTime();
+    Date releaseDate4 = cal.getTime();
 
     cal.set(2025, Calendar.JANUARY, 13);
-    Date rd5 = cal.getTime();
+    Date releaseDate5 = cal.getTime();
 
-    myMovies[0] = new Movie("Moonlight", "Drama", rd1, 110);
-    myMovies[1] = new Movie("A single Man", "Drama", rd2, 100);
-    myMovies[2] = new Movie("Hacksaw Ridge", "Action and Adventure", rd3, 139);
-    myMovies[3] = new Movie("John Wick", "thrillar", rd4, 110);
-    myMovies[4] = new Movie("Moonlight", "Drama", rd5, 101);
+    // 1. Create an array with couple of movies, say 5.
+    Movie[] myMovies = new Movie[5];
 
-    int len = 0;
-    for (int i = 0; i < myMovies.length; i++) {
-      myMovies[i].moviePrintDetails();
-      len += myMovies[i].getlengthOfMovie();
+    myMovies[0] = new Movie("Moonlight", "Drama", releaseDate1, 110);
+    myMovies[1] = new Movie("A single Man", "Drama", releaseDate2, 100);
+    myMovies[2] = new Movie("Hacksaw Ridge", "Action and Adventure", releaseDate3, 139);
+    myMovies[3] = new Movie("John Wick", "thrillar", releaseDate4, 110);
+    myMovies[4] = new Movie("Runaway Bride", "Drama", releaseDate5, 101);
+
+    // 2. Print all movie details using for each loop
+    System.out.println("Movies in the object array :: ");
+    for (Movie movie : myMovies) {
+      movie.printMovieDetails();
     }
+    // Find cumulative duration
+    int duration = getDuration(myMovies);
+    System.out.println("\n\nCumulative Length of all the  movies are :: " + duration);
 
-    System.out.println("\nCumulative Time to watch all movies ===> " + len);
+    // getting oldest and newest movies in the arraylist
+    int index = getLatestMovies(myMovies);
+    int indexold = getOldMovies(myMovies);
+    System.out.print("\nLatest Movie :: ");
+    myMovies[index].printMovieDetails();
+    System.out.print("\nOld Movie :: ");
+    myMovies[indexold].printMovieDetails();
 
-    String old = getOldMovies(myMovies);
-
-    String newest = getNewMovies(myMovies);
-    System.out.println("\nOld movie: " + old + "\nNew movie " + newest);
-
-    int genreCount = CountGenre(myMovies);
-    System.out.println("\nDrama genre repeats ===> " + genreCount + "times");
-  }
-  // Used this as example: https://goo.gl/r5K2EQ
-  // All my methods starts here
-  //Getting title of old and new movies
-
-  public static String getOldMovies(Movie[] movies) {
-    Date latest = movies.clone()[0].getReleaseDate();
-    String title = "";
-    for (int i = 1; i < movies.length; i++) {
-      Date date2 = movies[i].getReleaseDate();
-      if (latest.after(date2)) {
-        latest = date2;
-        title = movies[i].getTitle();
-      }
-    }
-    return title;
-  }
-
-  public static String getNewMovies(Movie[] movies) {
-    Date old = movies.clone()[0].getReleaseDate();
-    String title = "";
-    for (int i = 1; i < movies.length; i++) {
-      Date date2 = movies[i].getReleaseDate();
-      if (old.before(date2)) {
-        old = date2;
-        title = movies[i].getTitle();
-      }
-    }
-    return title;
-  }
-
-  //Getting the genre count
-  public static int CountGenre(Movie[] array) {
-    int count = 0;
+    // Getting the number of times given genre repeated
     String genre = "Drama";
+    int count = countGenre(myMovies, genre);
+    System.out.println("\n\n" + genre + " Genre repeated :: " + count + " times.");
+
+  }
+
+  // 3. Calcuate how long it takes to watch all movies ?
+  public static int getDuration(Movie[] array) {
+    int len = 0;
+    for (int i = 0; i < array.length; i++) {
+      //array[i].printMovieDetails();
+      len += array[i].getlengthOfMovie();
+    }
+    return len;
+
+  }
+
+
+  // 5. What is latest movie (using release date) --Static method in Main class, pass movie array,
+  public static int getLatestMovies(Movie[] movie) {
+    Date latest = movie[0].getReleaseDate();
+    int index = 0;
+    for (int i = 1; i < movie.length; i++) {
+      Date date1 = movie[i].getReleaseDate();
+      if (date1.after(latest)) {
+        latest = date1;
+        index = i;
+      }
+    }
+    return index;
+  }
+
+  // Oldest movie in the object array list
+  public static int getOldMovies(Movie[] movie) {
+    Date latest = movie[0].getReleaseDate();
+    int index = 0;
+    for (int i = 1; i < movie.length; i++) {
+      Date date1 = movie[i].getReleaseDate();
+      if (date1.before(latest)) {
+        latest = date1;
+        index = i;
+      }
+    }
+    return index;
+  }
+
+  // Getting the genre count
+  public static int countGenre(Movie[] array, String genre) {
+    int count = 0;
     for (int i = 0; i < array.length; i++) {
       if (array[i].getGenere() == genre) {
         count += 1;
-
       }
     }
     return count;
-  }
 
+  }
 }
+
+

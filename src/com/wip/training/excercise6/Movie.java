@@ -15,11 +15,11 @@ public class Movie {
   private Date releaseDate;
   private int lengthOfMovie;
 
-  Movie(String t, String g, Date rd, int lm) {
-    title = t;
-    genre = g;
-    releaseDate = rd;
-    lengthOfMovie = lm;
+  Movie(String title, String genre, Date releaseDate, int lengthOfMovie) {
+    this.title = title;
+    this.genre = genre;
+    this.releaseDate = releaseDate;
+    this.lengthOfMovie = lengthOfMovie;
   }
 
   // creating accessor methods, to access the values to hide implementation
@@ -41,11 +41,11 @@ public class Movie {
 
   // creating moviePrintDetails method
 
-  public void moviePrintDetails() {
+  public  void printMovieDetails() { 
     System.out.print("\nName: " + getTitle() + ", ");
     System.out.print("Genere:" + getGenere() + ", ");
     System.out.print("Release date: " + getReleaseDate() + ", ");
-    System.out.print("Length of movie: " + getlengthOfMovie() + "\n");
+    System.out.print("Length of movie: " + getlengthOfMovie());
 
   }
 
