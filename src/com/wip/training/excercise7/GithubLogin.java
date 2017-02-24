@@ -21,9 +21,9 @@ public class GithubLogin {
     WebElement signin = driver.findElement(By.name("login"));
     signin.click();
     signin.sendKeys(username);
-    WebElement password = driver.findElement(By.name(passwd));
+    WebElement password = driver.findElement(By.name("password"));
     password.click();
-    password.sendKeys("#Rosyma1");
+    password.sendKeys(passwd);
     driver.findElement(By.name("commit")).click();    
   }
 }
