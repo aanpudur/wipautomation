@@ -9,20 +9,17 @@ public class GithubLogin {
 
   public static void main(String[] args)  {
     
-    String username = "myname@gmail.com";
-    String passwd = "mypassword";
-    
-    
+    String username = "username@gmail.com";
+    String passwd = "passwd";
+        
     System.setProperty("webdriver.gecko.driver", "/Users/aanvazhapilly/Downloads/geckodriver");     
     WebDriver driver = new FirefoxDriver();
     driver.get("https://github.com/");
-    driver.findElement(By.linkText("Sign in")).click();
-    driver.get("https://github.com/login");
+    driver.findElement(By.linkText("Sign in"));
+    //driver.get("https://github.com/login");
     WebElement signin = driver.findElement(By.name("login"));
-    signin.click();
     signin.sendKeys(username);
     WebElement password = driver.findElement(By.name("password"));
-    password.click();
     password.sendKeys(passwd);
     driver.findElement(By.name("commit")).click();    
   }
